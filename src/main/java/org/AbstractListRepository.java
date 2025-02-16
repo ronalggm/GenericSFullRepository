@@ -24,19 +24,19 @@ public abstract class AbstractListRepository<T extends BaseEntity> implements Fu
 
     @Override
     public T buscarPorId(Integer id) {
-        T result = null;
+        T result;
         for (T t : dataSource) {
             if (t.getId().equals(id)) {
                 result = t;
                 return result;
             }
         }
-        return null;
+        throw new RuntimeException("No se ha encontrado el id");
     }
 
     @Override
     public void eliminar(Integer id) {
-        this.dataSource.remove(id);
+        this.dataSource.remove(buscarPorId(id));
     }
 
 
