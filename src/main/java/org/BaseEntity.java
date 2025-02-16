@@ -8,7 +8,11 @@ public class BaseEntity {
         this.id = ultimoId++;
     }
 
-    public static class AbstractListRepository {
+    public Integer getId() {
+        return id;
+    }
 
+    public void setId(Integer id) {
+        this.id = id;
     }
 }
