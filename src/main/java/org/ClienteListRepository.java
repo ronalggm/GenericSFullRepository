@@ -19,7 +19,8 @@ public class ClienteListRepository extends AbstractListRepository<Cliente> {
     public List<Cliente> listar(String campo, Direccion dir) {
         List<Cliente> listaOrdenada = new ArrayList<>(this.dataSource);
         if (dir == Direccion.ASC) {
-            dataSource.sort((a, b) -> ordenar(campo, a, b));
+            listaOrdenada.sort((a, b) -> ordenar(campo, a, b));
+
         }
         if (dir == Direccion.DESC) {
             dataSource.sort((a, b) -> ordenar(campo, b, a));
@@ -36,6 +37,7 @@ public class ClienteListRepository extends AbstractListRepository<Cliente> {
         }
         return result;
     }
+
 
 
 }
